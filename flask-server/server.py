@@ -193,6 +193,14 @@ def scrape_product():
 
     return jsonify(product_data), 200
 
+# New endpoint to fetch all products from the MongoDB database
 
+
+@app.route('/products', methods=['GET'])
+def get_products():
+    # Fetch all products and exclude the MongoDB _id field
+    products = list(collection.find({}, {"_id": 0}))
+    return jsonify(products), 200
+    
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
