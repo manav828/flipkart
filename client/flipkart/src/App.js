@@ -31,7 +31,7 @@ function App() {
   useEffect(() => {
     const fetchAllProducts = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:5000/products");
+        const response = await fetch("http://10.223.163.227:5000/products");
         const data = await response.json();
         if (response.ok) {
           setAllProducts(data);
