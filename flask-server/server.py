@@ -16,8 +16,8 @@ collection = db['products']      # Collection name
 app = Flask(__name__)
 # Enable CORS for all routes and allow requests from any origin
 # CORS(app, origins=["http://localhost:3000"])
-CORS(app, origins=["https://flipkart-khaki-three.vercel.app/"])
-
+# CORS(app, origins=["https://flipkart-khaki-three.vercel.app/"])
+CORS(app, resources={r"/*": {"origins": "https://flipkart-khaki-three.vercel.app/"}})
 
 def scrape_flipkart_product(url, retries=3, delay=5):
     print(url)
